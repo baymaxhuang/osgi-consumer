@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <guava.version>19.0</guava.version>
   </properties>
 
   <dependencies>
@@ -34,6 +35,19 @@
       <artifactId>osgi-provider</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava-testlib</artifactId>
+      <version>${guava.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -49,6 +63,8 @@
             <Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
             <Bundle-Vendor>Apache Felix</Bundle-Vendor>
             <Bundle-Activator>org.hhb.osgi.consumer.HelloWorldActivator</Bundle-Activator>
+            <!--<Import-Package>com.google.common.collect,javax.swing,org.osgi.framework,
+            org.hhb.osgi.provider.api,org.hhb.osgi.provider.impl</Import-Package>-->
           </instructions>
         </configuration>
       </plugin>

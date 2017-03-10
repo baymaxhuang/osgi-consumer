@@ -1,20 +1,29 @@
 package org.hhb.osgi.consumer;
 
+import com.google.common.collect.Lists;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 import org.hhb.osgi.provider.api.HelloWorldService;
+import org.hhb.osgi.provider.impl.HelloWorldServiceImpl;
+
+import java.util.List;
 
 public class HelloWorldActivator implements BundleActivator {
     private HelloWorldConsumer consumer;
 
     @Override
     public void start(BundleContext bundleContext) throws Exception {
-        ServiceReference reference = bundleContext.getServiceReference(HelloWorldService.class.getName());
+        //test for using third-party dependency package
+        List<String> strings = Lists.newArrayList("I", "use", "guava", "here");
+        System.out.println(strings);
 
-        consumer = new HelloWorldConsumer((HelloWorldService) bundleContext.getService(reference));
+        //test for using my customized dependency package
+        //ServiceReference reference = bundleContext.getServiceReference(HelloWorldService.class.getName());
+        consumer = new HelloWorldConsumer(new HelloWorldServiceImpl());
         consumer.startTimer();
+
     }
 
     @Override
