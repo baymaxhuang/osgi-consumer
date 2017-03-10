@@ -3,9 +3,6 @@ package org.hhb.osgi.consumer;
 import com.google.common.collect.Lists;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
-
-import org.hhb.osgi.provider.api.HelloWorldService;
 import org.hhb.osgi.provider.impl.HelloWorldServiceImpl;
 
 import java.util.List;
